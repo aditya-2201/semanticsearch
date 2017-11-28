@@ -7,7 +7,6 @@ services:
       - "9092:9092"
       - "2181:2181"
     environment:
-      - ADVERTISED_HOST=172.23.238.184
       - ADVERTISED_PORT=9092
 
   eureka:
@@ -17,23 +16,26 @@ services:
       - "8020:8020"
 
   # db:
-  #   image: mysql
-  #   container_name : mysqldb
+  #   image: mysql:latest
+  #   container_name : mysql
   #   restart: always
+  #   ports :
+  #     - "3306:3306"
   #   environment:
-  #   MYSQL_ROOT_USERNAME : root
-  #   MYSQL_ROOT_PASSWORD : aditya123
-  #   MYSQL_DATABASE : OAUTH
+  #     MYSQL_ROOT_PASSWORD : mysql
+  #     MYSQL_DATABASE : OAUTH
 
-  # ui : 
-  #   build : ./Semantic_Search_UI
-  #   ports : 
-  #     - "4200:4200"
+  ui : 
+    build : ./UserUI
+    ports : 
+      - "4200:4200"
 
   # auth : 
   #   build : ./OAuthService
   #   ports :
   #     - "8087:8087"
+  #   environment :
+  #      mysql_url : mysql
   
   graph :
     image : neo4j
