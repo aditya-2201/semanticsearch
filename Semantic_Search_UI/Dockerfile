@@ -4,11 +4,10 @@ FROM node:9-alpine
 WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY package.json package-lock.json /usr/src/app
+COPY package.json /usr/src/app
 # For npm@5 or later, copy package-lock.json as well
-# COPY package.json /usr/src/app
 
-RUN npm install
+RUN npm install && npm install api-ai-javascript
 # If you are building your code for production
 # RUN npm install
 

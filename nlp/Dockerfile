@@ -12,6 +12,10 @@ COPY ner-custom-model.bin /src
 
 COPY input.txt /src
 
+COPY FinanceOutpuutt.txt /src
+
+COPY ner-custom-model-finance.bin /src
+
 #add the local jar to docker context (jar in target folder after mvn package)
 ADD ./target/nlp-0.0.1-SNAPSHOT.jar /src/pos-ner.jar
 

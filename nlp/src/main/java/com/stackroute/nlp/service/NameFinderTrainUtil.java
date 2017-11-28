@@ -29,7 +29,8 @@ public class NameFinderTrainUtil {
 		try {
 			String basePath = new File("").getAbsolutePath();
 			System.out.println("base path : " + basePath);
-			in = new MarkableFileInputStreamFactory(new File(basePath+"/input.txt"));
+			//in = new MarkableFileInputStreamFactory(new File(basePath+"/input.txt"));
+			in = new MarkableFileInputStreamFactory(new File(basePath+"/FinanceOutpuutt.txt"));
 		} catch (FileNotFoundException e2) {
 			e2.printStackTrace();
 		}
@@ -62,7 +63,8 @@ public class NameFinderTrainUtil {
 			String basePath = new File("").getAbsolutePath();
 			System.out.println("base path : " + basePath);
 			
-			File output = new File(basePath+"/ner-custom-model.bin");
+			//File output = new File(basePath+"/ner-custom-model.bin");
+			File output = new File(basePath+"/ner-custom-model-finance.bin");
 			FileOutputStream outputStream = new FileOutputStream(output);
 			nameFinderModel.serialize(outputStream);
 		} catch (FileNotFoundException e) {
